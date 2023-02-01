@@ -4,12 +4,13 @@ import java.util.List;
 
 public class EmployeesView {
     public void display(List<Employee> employees) {
-        employees.stream()
-            .map(this::displayEmployee)
-            .forEach(System.out::println);
+        for (Employee employee : employees) {
+            String info = getEmployeeInfo(employee);
+            System.out.println(info);
+        }
     }
 
-    private String displayEmployee(Employee employee) {
+    private void getEmployeeInfo(Employee employee) {
         return employee.getFirstName() + " "  + employee.getLastName();
     }
 }
